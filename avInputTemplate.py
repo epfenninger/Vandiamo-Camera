@@ -9,7 +9,8 @@ import os
 
 Gst.init(sys.argv)
 
-dashcamString = 'v4l2src device=/dev/v4l/by-id/usb-MACROSIL_AV_TO_USB2.0-video-index0 do-timestamp=true pixel-aspect-ratio=1 norm=NTSC ! video/x-raw, format=(string)YUY2, width=(int)720, height=(int)480, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction)30/1 ! nvvidconv ! clockoverlay halignment=left valignment=bottom text=Rear$
+dashcamString = 'v4l2src device=/dev/v4l/by-id/usb-MACROSIL_AV_TO_USB2.0-video-index0 do-timestamp=true pixel-aspect-ratio=1 norm=NTSC ! video/x-raw, format=(string)YUY2, width=(int)720, height=(int)480, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction)30/1 ! nvvidconv ! clockoverlay halignment=left valignment=bottom text=Rearcam time-format=%D-%H:%M:%S shaded-background=false font-desc=Sans,12 ! nvvidconv ! video/x-raw(memory:NVMM),format=NV12 ! omxh264enc ! video/x-h264, streamformat=(string)byte-stream ! h264parse ! matroskamux ! filesink location='
+
 
 def main():
   while(True):
