@@ -1,2 +1,2 @@
 # Vandiamo-Camera
-Camera recording system for van
+Recording footage from 1x USB Webcam and 3x AV Input cards using a Nvidia Jetson Nano.
