@@ -9,7 +9,7 @@ import os
 
 Gst.init(sys.argv)
 
-dashcamString = 'v4l2src do-timestamp=true device=/dev/video1 ! image/jpeg,width=1920,height=1080,framerate=30/1 ! nvv4l2decoder mjpeg=1 ! nvvidconv flip-method=2 ! clockoverlay halignment=left valignment=bottom text=Dashcam time-format=%D-%H:%M:%S shaded-background=false font-desc=Sans,12 ! omxh264enc ! video/x-h264, streamformat=$
+dashcamString = 'v4l2src do-timestamp=true device=/dev/video1 ! image/jpeg,width=1920,height=1080,framerate=30/1 ! nvv4l2decoder mjpeg=1 ! nvvidconv flip-method=2 ! clockoverlay halignment=left valignment=bottom text=Dashcam time-format=%D-%H:%M:%S shaded-background=false font-desc=Sans,12 ! omxh264enc ! video/x-h264, streamformat=(string)byte-stream ! h264parse ! matroskamux ! filesink location='
 
 def main():
   while(True):
